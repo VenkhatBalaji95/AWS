@@ -7,4 +7,4 @@ instance_name = os.environ['instance_name']
 def lambda_handler(event, context):
     print ('Enters into the function')
     instances = ec2.instances.filter(
-    Filters=[{'Name': 'tag:Name', 'Values': [instance_name]}]).stop()
+    Filters=[{'Name': 'tag:Name', 'Values': [instance_name]}]).start()
