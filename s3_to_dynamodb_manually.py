@@ -36,8 +36,7 @@ def lambda_handler(event, context):
         value = list [i]
         print ('The employee ID is', value['Emp_id'])
         print ('The employee name is', value['Emp_name'])
-        Emp_id=int(value['Emp_id'])
-        
+        Emp_id=int(value['Emp_id'])        
         table.put_item(Item=
         {column1:Emp_id,
         column2:value['Emp_name']})
