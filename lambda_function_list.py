@@ -6,7 +6,7 @@ version = os.environ['version']
 topic = os.environ['topic']
 subject = os.environ['subject']
 
-s3 = boto3.client('sns')
+sns = boto3.client('sns')
 
 def lambda_handler(event, context):
     print ('into the function')
@@ -18,4 +18,4 @@ def lambda_handler(event, context):
             function_name.append(a['FunctionName'])
     print ('The old Lambda functions are:',function_name)
     if function_name:
-        s3.publish(TopicArn=topic,Message=str(function_name),Subject=subject)
+        sns.publish(TopicArn=topic,Message=str(function_name),Subject=subject)
